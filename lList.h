@@ -1,6 +1,11 @@
 // LINKED LIST ALGORITHM
 #pragma once
 
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+#include<string.h>
+
 // SIMPLE NODES FOR SIMPLE LISTS
 typedef struct NODE{
 	char* value;
