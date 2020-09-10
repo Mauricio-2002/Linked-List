@@ -15,7 +15,7 @@ typedef struct C_NODE{
 
 
 // ADD VALUE TO THE LIST
-void LL_ADD(LL_NODE** node, char* value){
+void ll_add(LL_NODE** node, char* value){
 	LL_NODE* n_node = malloc(sizeof(LL_NODE));
 	(*n_node).value = value;
 	(*n_node).next = &(**node);
@@ -23,17 +23,17 @@ void LL_ADD(LL_NODE** node, char* value){
 }
 
 // FIND VALUE
-LL_NODE* LL_FIND(LL_NODE* node, char* value){
+LL_NODE* ll_find(LL_NODE* node, char* value){
 	if(node == NULL)
 		return NULL;
 	if((*node).value == value)
 		return &(*node);
-	LL_FIND((*node).next, value);
+	ll_find((*node).next, value);
 }
 
 
 // REMOVE A NODE WITH A VALUE
-int LL_REMOVE(LL_NODE** node, char* value){
+int ll_remove(LL_NODE** node, char* value){
 	// LAST VALUE, AND VALUE FINDER
 	bool flag = false;
 	LL_NODE* lastValue = NULL;
@@ -58,10 +58,29 @@ int LL_REMOVE(LL_NODE** node, char* value){
 	return 1;
 }
 // REMOVE THE LAST ELEMENT
-void LL_REMOVE_L(LL_NODE** node){
-	
+void ll_remove_li(LL_NODE** node){
+	if(*node == NULL)
+		return;
+	LL_NODE* last = &(**node);
+	*node = (*last).next;
+	free(&(*last));
+	last = NULL;
 }
 // REMOVE THE FIRST ELEMENT
-void LL_REMOVE_F(LL_NODE** node){
-	
+void ll_remove_fi(LL_NODE** node){
+	if(*node == NULL)
+		return;
+	LL_NODE* end = &(**node);
+	LL_NODE* before = NULL;
+	while((*end).next != NULL){
+		before = &(*end);
+		end = &(*(*end).next);
+	}
+	if(before == NULL){
+		*node = NULL;
+		free(&(*end));
+		return;
+	}
+	(*before).next = NULL;
+	free(&(*end));
 }
