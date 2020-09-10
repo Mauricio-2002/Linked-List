@@ -15,11 +15,26 @@ typedef struct C_NODE{
 
 
 // ADD VALUE TO THE LIST
-void ll_add(LL_NODE** node, char* value){
+void ll_add_top(LL_NODE** node, char* value){
 	LL_NODE* n_node = malloc(sizeof(LL_NODE));
 	(*n_node).value = value;
 	(*n_node).next = &(**node);
 	*node = &(*n_node);
+}
+
+void ll_add_bottom(LL_NODE** node, char* value){
+	if(*node == NULL){
+		ll_add_top(&(*node), value);
+		return;
+	}
+	LL_NODE* end = *node;
+	LL_NODE* n_node = malloc(sizeof(LL_NODE));
+	while((*end).next != NULL){
+		end = &(*(*end).next);
+	};
+	(*n_node).value = value;
+	(*n_node).next = NULL;
+	(*end).next = &(*n_node);
 }
 
 // FIND VALUE
@@ -58,7 +73,7 @@ int ll_remove(LL_NODE** node, char* value){
 	return 1;
 }
 // REMOVE THE LAST ELEMENT
-void ll_remove_li(LL_NODE** node){
+void ll_remove_top(LL_NODE** node){
 	if(*node == NULL)
 		return;
 	LL_NODE* last = &(**node);
@@ -67,7 +82,7 @@ void ll_remove_li(LL_NODE** node){
 	last = NULL;
 }
 // REMOVE THE FIRST ELEMENT
-void ll_remove_fi(LL_NODE** node){
+void ll_remove_bottom(LL_NODE** node){
 	if(*node == NULL)
 		return;
 	LL_NODE* end = &(**node);

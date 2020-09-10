@@ -7,11 +7,9 @@
 
 int main(){
 	LL_NODE* lista = NULL;
-	ll_remove_li(&lista);
-	ll_add(&lista, "B");
-	ll_add(&lista, "C");
-	ll_add(&lista, "D");
-	// ll_remove(&lista, "C");
-	ll_remove_fi(&lista);
+	ll_add_bottom(&lista, "B");
+	ll_add_bottom(&lista, "A");
+	ll_add_bottom(&lista, "C");
+	ll_add_top(&lista, "C");
 	return 0;
 }
