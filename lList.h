@@ -1,7 +1,6 @@
 // LINKED LIST ALGORITHM
 #pragma once
 
-#include<stdlib.h>
 // SIMPLE NODES FOR SIMPLE LISTS
 typedef struct NODE{
 	char* value;
@@ -24,21 +23,39 @@ void LL_ADD(LL_NODE** node, char* value){
 }
 
 // FIND VALUE
-int LL_FIND(LL_NODE* node, char* value){
+LL_NODE* LL_FIND(LL_NODE* node, char* value){
 	if(node == NULL)
-		return -1;
+		return NULL;
 	if((*node).value == value)
-		return 0;
+		return &(*node);
 	LL_FIND((*node).next, value);
 }
 
 
-
-
-
 // REMOVE A NODE WITH A VALUE
-void LL_REMOVE(LL_NODE** node, char* value){
-	
+int LL_REMOVE(LL_NODE** node, char* value){
+	// LAST VALUE, AND VALUE FINDER
+	bool flag = false;
+	LL_NODE* lastValue = NULL;
+	LL_NODE* finder = &(**node);
+	while(finder != NULL){
+		if((*finder).value == value){
+			flag = true;
+			break;
+		}
+		lastValue = &(*finder);
+		finder = &(*(*finder).next);
+	}
+	if(flag){
+		if(lastValue != NULL)
+			(*lastValue).next = &(*(*finder).next);
+		else
+			(*node) = &(*(*finder).next);
+		free(&(*finder));
+		finder = NULL;
+		return 0;
+	}
+	return 1;
 }
 // REMOVE THE LAST ELEMENT
 void LL_REMOVE_L(LL_NODE** node){
