@@ -49,9 +49,9 @@ This functions takes 2 arguments: A memory direction to the list, and a string.
 The value given is pushed in the top of the list
 
 #### Before adding a node
-> `list -> ["A"] -> ["B"] -> NULL`
+`list -> ["A"] -> ["B"] -> NULL`
 #### After adding a node
-> `list -> ["C"] -> ["A"] -> ["B"] -> NULL`
+`list -> ["C"] -> ["A"] -> ["B"] -> NULL`
 
 ### **Add to bottom**
 ___
@@ -64,9 +64,9 @@ This functions takes 2 arguments: A memory direction to the list, and a string.
 The value given is pushed in the bottom of the list
 
 #### Before adding a node
-> `list -> ["A"] -> ["B"] -> NULL`
+`list -> ["A"] -> ["B"] -> NULL`
 #### After adding a node
-> `list -> ["A"] -> ["B"] -> ["C"] -> NULL`
+`list -> ["A"] -> ["B"] -> ["C"] -> NULL`
 
 ## Remove a node
 Use one of the following functions to remove a node
@@ -81,9 +81,9 @@ ll_remove(&list, "Something");
 This functions takes 2 arguments: A memory direction to the list, and a string to seek in the list.
 
 #### Before remove a node
-> `list -> ["A"] -> ["B"] -> ["C"] -> NULL`
+`list -> ["A"] -> ["B"] -> ["C"] -> NULL`
 #### After removing a node
-> `list -> ["A"] -> ["C"] -> NULL`
+`list -> ["A"] -> ["C"] -> NULL`
 
 *Note: this function can delete the first and last element*
 
@@ -98,9 +98,9 @@ ll_remove_top(&list);
 This functions takes the memory direction to the list and removes the top element.
 
 #### Before remove a node
-> `list -> ["A"] -> ["B"] -> ["C"] -> NULL`
+`list -> ["A"] -> ["B"] -> ["C"] -> NULL`
 #### After removing a node
-> `list -> ["B"] -> ["C"] -> NULL`
+`list -> ["B"] -> ["C"] -> NULL`
 
 ### **Remove bottom element**
 ___
@@ -113,9 +113,9 @@ ll_remove_bottom(&list);
 This functions takes the memory direction to the list and removes the bottom element.
 
 #### Before remove a node
-> `list -> ["A"] -> ["B"] -> ["C"] -> NULL`
+`list -> ["A"] -> ["B"] -> ["C"] -> NULL`
 #### After removing a node
-> `list -> ["A"] -> ["B"] -> NULL`
+`list -> ["A"] -> ["B"] -> NULL`
 
 ## **Find a node**
 To find a node in the list use **`ll_find()`** function.
@@ -124,7 +124,7 @@ To find a node in the list use **`ll_find()`** function.
 ll_find(&list, "Something");
 ```
 
-This function takes 2 arguments: A memory direction of the list, and a value to find. And returns a pointer to the node if the value if it was found, if not then it return NULL.
+This function takes 2 arguments: A memory direction of the list, and a value to find. And returns a pointer to the node if the value was found, if not then it return NULL.
 
 ``` c
 LL_NODE* Mynode = ll_find(&list, "Something");
@@ -135,16 +135,17 @@ LL_NODE* Mynode = ll_find(&list, "Something");
 ___
 * Create a linked list
 	* [x] Simple linked list
-	* [ ] Circular linked list
+	* [x] Circular linked list
 * Simple list
-	1. Add a node to the list
+	* Add a node to the list
 		* [x] Add to top
 		* [x] Add to bottom
 		* [ ] Add after a node
 		* [ ] Add before a node 
-	2. Remove a node
+	* Remove a node
 		* [x] Remove a element
 		* [x] Remove top element
 		* [x] Remove bottom element
-	3. [x] Find a node
-* Circular list 
+	* [x] Find a node
+* Circular list
+	* /*UNDER CONSTRUCTION*/
