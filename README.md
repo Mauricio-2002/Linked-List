@@ -5,7 +5,6 @@ Header file for C linked lists.
 About linked lists: [Wikipedia: Linked Lists](https://en.wikipedia.org/wiki/Linked_list)
 
 ## *Index*
----
 * **How to use**
 	* [Create a linked list](#create-a-linked-list)
 		* [Simple linked list](#simple-linked-list)
@@ -24,7 +23,6 @@ About linked lists: [Wikipedia: Linked Lists](https://en.wikipedia.org/wiki/Link
 
 # **How to use**
 ## Create a linked list
----
 Before creating a list you need to include lList.h on your file
 ``` c
 #include"lList.h"
@@ -38,7 +36,6 @@ LL_NODE* list = NULL; // THIS IS A LINKED LIST
 
 # ***Simple list***
 ## Add a node to the list 
----
 If the list has no value, use one of the following functions
 
 ### **Add to top**
@@ -72,7 +69,6 @@ The value given is pushed in the bottom of the list
 > `list -> ["A"] -> ["B"] -> ["C"] -> NULL`
 
 ## Remove a node
----
 Use one of the following functions to remove a node
 ### **Remove a element**
 ___
@@ -122,7 +118,6 @@ This functions takes the memory direction to the list and removes the bottom ele
 > `list -> ["A"] -> ["B"] -> NULL`
 
 ## **Find a node**
-___
 To find a node in the list use **`ll_find()`** function.
 
 ``` c 
@@ -136,7 +131,6 @@ LL_NODE* Mynode = ll_find(&list, "Something");
 ```
 
 ## Future
----
 ### To Do
 ___
 * Create a linked list
